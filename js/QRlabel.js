@@ -10,12 +10,18 @@ var app = new Vue({
       textqr:""
     },
 
+    computed: {
+      qr_data: function() {
+        let qrd = JSON.stringify(this.nkkkNo +"," +this.groupNo + "," +this.tempNo)
+        this.qrcreation(qrd)
+        return qrd
+      }
+    },
+
     methods: {  
-        qrcreation: function () {
-          alert("QR発行")
-          this.textqr = this.nkkkNo +"," +this.groupNo + "," +this.tempNo;
+        qrcreation: function(d) {
           $('#qrprint').html("");
-          $('#qrprint').qrcode({ width: 60, height: 60, text: JSON.stringify(this.textqr)})
+          $('#qrprint').qrcode({ width: 60, height: 60, text: d})
         }
     }});
   
