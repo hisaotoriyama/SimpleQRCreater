@@ -8,4 +8,4 @@ app.use('/', express.static(path.join( __dirname, '/public')));
 app.resource('qrlabels', require('./controllers/qrlabel'), {id: 'id'})
 
 // start application
-app.listen(3005)
+app.listen(3003)
