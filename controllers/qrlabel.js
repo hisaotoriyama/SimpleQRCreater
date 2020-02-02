@@ -1,4 +1,6 @@
-// @file product.js <controllers>
+// load ORM nmodule
+let db = require('../models/index')
+
 // REST controller definitions
 module.exports = {
     index: (req, res) => {
