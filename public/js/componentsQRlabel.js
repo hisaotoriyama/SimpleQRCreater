@@ -1,6 +1,10 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td>{{id}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
+    template: "<tr><td>{{id}}</td><td>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
+    // 下記チェックボックス除外
+    // <input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\">
+
+
     computed: {
         id: function () {
             return this.storage.id;
@@ -20,6 +24,12 @@ Vue.component("silist", {
         status: function () {
             return this.storage.status;
         },
+        qr_data: function () {
+            let qrd = JSON.stringify(this.nkkkno + ",," + this.groupno + "," + this.tempno)
+            console.log(qrd.replace(/"/g, ''))
+            this.qrcreation(qrd.replace(/"/g, ''))
+            return qrd.replace(/"/g, '')
+        }
     }
 })
 
@@ -53,13 +63,12 @@ var app = new Vue({
             }
         ]
     },
-    methods:{
-    qrissue:function(){
-        チェックボックスを選択。
-        選択したチェックボックスのidを複数取り出す。
-
+    methods: {
+        qrcreation: function (d) {
+            $('#qrprint').html("");
+            $('#qrprint').qrcode({ width: 60, height: 60, text: d })
+        }
     }
-}
 
 })
 
