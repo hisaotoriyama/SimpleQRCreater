@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr><td>{{id}}</td><td>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
+    template: "<tr><td>{{id}}</td><td :id='tag_id'>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
     // 下記チェックボックス除外
     // <input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\">
 
@@ -8,6 +8,9 @@ Vue.component("silist", {
     computed: {
         id: function () {
             return this.storage.id;
+        },
+        tag_id: function () {
+            return "qr_" + this.storage.id;
         },
         nkkkno: function () {
             return this.storage.nkkkno;
@@ -27,8 +30,19 @@ Vue.component("silist", {
         qr_data: function () {
             let qrd = JSON.stringify(this.nkkkno + ",," + this.groupno + "," + this.tempno)
             console.log(qrd.replace(/"/g, ''))
-            this.qrcreation(qrd.replace(/"/g, ''))
+            //this.qrcreation(qrd.replace(/"/g, ''))
             return qrd.replace(/"/g, '')
+        }
+    },
+    mounted: function() {
+        this.qrcreation(this.qr_data)
+    },
+    methods: {
+        qrcreation: function (d) {
+            console.log(this.tag_id)
+            console.log(d)
+            $('#' + this.tag_id).html("");
+            $('#' + this.tag_id).qrcode({ width: 60, height: 60, text: d })
         }
     }
 })
