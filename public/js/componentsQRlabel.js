@@ -1,10 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr><td>{{id}}</td><td :id='tag_id'>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
-    // 下記チェックボックス除外
-    // <input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\">
-
-
+    template: "<tr><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td>{{id}}</td><td :id='tag_id'>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -78,11 +74,29 @@ var app = new Vue({
         ]
     },
     methods: {
-        qrcreation: function (d) {
-            $('#qrprint').html("");
-            $('#qrprint').qrcode({ width: 60, height: 60, text: d })
-        }
-    }
+        readall: function () {
+            // alert("ReadAll")
+            const headers = {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            };
+            const d = {
+              headers: headers,
+              method: "GET"
+            };
+            var self = this;
+            fetch('/qrlabels', d)
+              .then((e) => {
+                e.json().then((j) => {
+                  self.storeditemlists = j;
+                })
+              })
+          },
+      
+    },
+    created: function () {
+        return this.readall()
+      },
 
 })
 

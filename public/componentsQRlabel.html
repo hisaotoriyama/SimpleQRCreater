@@ -6,25 +6,25 @@
     <title>Data Summary</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- 
+
 </head>
 
 <body>
     <div id="app">
         <div class="row">
             <table class="table table table-striped ml-5 mt-5">
-                <!-- <th></th>
-                <th>ID</th>
-                <th>NKKK</th>
-                <th>Group</th>
-                <th>TEMP</th>
-                <th>Quantity</th>
-                <th>Status</th> -->
-
-            
-                    <tr is=silist v-for="list in storeditemlists" v-bind:storage="list"></tr>
-                
-
+                <!-- <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="readall">Read All</button> -->
+            </table>
+            <table class="table table table-striped ml-5 mt-5">
+                    <th></th>
+                    <th>QR</th>
+                    <th>ID</th>
+                    <th>NKKK</th>
+                    <th>Group</th>
+                    <th>TEMP</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                <tr is=silist v-for="list in storeditemlists" v-bind:storage="list"></tr>
             </table>
             <!-- <table class="table table table-striped ml-5 mt-5">
                     <td>QR Creation</td>
@@ -38,6 +38,7 @@
         <pre>{{$data}}</pre>
 
     </div>
+    <!-- Vueは一番初めに出さないとnew Vueできない -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
@@ -49,7 +50,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 
-
+    <!-- JSは一番最後に出す -->
     <script src="./js/componentsQRlabel.js"></script>
 
 </body>
