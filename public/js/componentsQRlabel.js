@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td></td><td>{{id}}</td><td :id='tag_id'>{{qr_data}}</td><td>{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity}}</td><td>{{status}}</td></tr>",
+    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td></td><td>{{id}}</td><img src=\"image/nkkk.png\"><td :id='tag_id'>{{qr_data}}</td><td class=\"text-primary\">{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity.toLocaleString()}}</td><td>{{status}}</td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -55,22 +55,22 @@ var app = new Vue({
                 quantity: 999.2,
                 status: "配送中",
             },
-            {
-                id: 2,
-                nkkkno: "D10001",
-                groupno: "BB",
-                tempno: "121",
-                quantity: 1092.1,
-                status: "在庫",
-            },
-            {
-                id: 3,
-                nkkkno: "D10001",
-                groupno: "CC",
-                tempno: "122",
-                quantity: 1030.1,
-                status: "在庫",
-            }
+            // {
+            //     id: 2,
+            //     nkkkno: "D10001",
+            //     groupno: "BB",
+            //     tempno: "121",
+            //     quantity: 1092.1,
+            //     status: "在庫",
+            // },
+            // {
+            //     id: 3,
+            //     nkkkno: "D10001",
+            //     groupno: "CC",
+            //     tempno: "122",
+            //     quantity: 1030.1,
+            //     status: "在庫",
+            // }
         ]
     },
     methods: {
