@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td></td><td>{{id}}</td><img src=\"image/nkkk.png\"><td :id='tag_id'>{{qr_data}}</td><td class=\"text-primary\">{{nkkkno}}</td><td>{{groupno}}</td><td>{{tempno}}</td><td>{{quantity.toLocaleString()}}</td><td>{{status}}</td></tr>",
+    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td>{{id}}</td><td class=\"text-primary h3\">{{nkkkno}}</td><td class=\"text-primary h3\">{{groupno}}</td><td class=\"text-primary h3\">{{tempno}}</td><img src=\"image/nkkk.png\"><td :id='tag_id'>{{qr_data}}</td><td class=\"text-primary h3\">{{quantity.toLocaleString()}}</td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -20,9 +20,9 @@ Vue.component("silist", {
         quantity: function () {
             return this.storage.quantity;
         },
-        status: function () {
-            return this.storage.status;
-        },
+        // status: function () {
+        //     return this.storage.status;
+        // },
         qr_data: function () {
             let qrd = JSON.stringify(this.nkkkno + ",," + this.groupno + "," + this.tempno)
             console.log(qrd.replace(/"/g, ''))

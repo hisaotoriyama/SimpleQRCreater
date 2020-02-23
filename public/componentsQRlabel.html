@@ -11,25 +11,23 @@
 
 <body>
     <div id="app">
-        
 
         <div class="row">
-            <!-- <table class="table table table-striped ml-5 mt-5">
-                <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectout">SelectOut</button>
+
+            <!-- <th><button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectout">Label</button></th> -->
+            <!-- <table >
+                <button type="button" class="table table table-striped ml-5 mt-5" v-on:click="selectout">SelectOut</button>
             </table> -->
             <table class="table table table-striped ml-5 mt-5">
-                <!-- <th><button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectout">Label</button></th> -->
-                    
                 <th></th>
                 <th>ID</th>
-                    <th></th>
-                    <th></th>
-                    <th>QR</th>
                     <th>NKKK</th>
-                    <th>Group</th>
+                    <th>GROUP</th>
                     <th>TEMP</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
+                    <th>NKKK</th>
+                    <th>QR</th>
+                    <th>Weight</th>
+                    <!-- <!-- <th>Status</th> --> -->
                     
                 <tr is=silist v-for="list in storeditemlists" v-bind:storage="list"></tr>
             </table>
@@ -42,7 +40,7 @@
                 <td><button type="button" class="btn btn-outline-primary" href="/logout">Logout</button></td>
             </table> -->
         </div>
-        <!-- <!-- <pre>{{$data}}</pre> --> -->
+        <pre>{{$data}}</pre>
 
     </div>
     <!-- Vueは一番初めに出さないとnew Vueできない -->
