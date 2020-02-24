@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td>{{id}}</td><td class=\"text-primary h3\">{{nkkkno}}</td><td class=\"text-primary h3\">{{groupno}}</td><td class=\"text-primary h3\">{{tempno}}</td><img src=\"image/nkkk.png\"><td :id='tag_id'>{{qr_data}}</td><td class=\"text-primary h3\">{{quantity.toLocaleString()}}</td></tr>",
+    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\" class=\"col-sm-0\"><td class=\"col-sm-3 h3\"><div>{{nkkkno}}</div><div><img class=\"h3\" src=\"image/nkkk.png\"></div></td>    <td class=\"col-sm-3 h3\"><div>{{groupno}}</div><div><td :id='tag_id'></div></td>    <td class=\"col-sm-3 h3\">  <div class=\"ml-2\">  <span>{{tempno}}</span> <div><td class=\"h1\">{{quantity.toLocaleString()}}</td></div> </div>  </td>  </span></div></td><td class=\"col-sm-3\"><div>{{id}}</div><div>{{status}}</div></td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -20,9 +20,9 @@ Vue.component("silist", {
         quantity: function () {
             return this.storage.quantity;
         },
-        // status: function () {
-        //     return this.storage.status;
-        // },
+        status: function () {
+            return this.storage.status;
+        },
         qr_data: function () {
             let qrd = JSON.stringify(this.nkkkno + ",," + this.groupno + "," + this.tempno)
             console.log(qrd.replace(/"/g, ''))
@@ -47,14 +47,14 @@ var app = new Vue({
     el: "#app",
     data: {
         storeditemlists: [
-            {
-                id: 1,
-                nkkkno: "D10001",
-                groupno: "AW",
-                tempno: "120",
-                quantity: 999.2,
-                status: "配送中",
-            },
+            // {
+            //     id: 1,
+            //     nkkkno: "D10001",
+            //     groupno: "AW",
+            //     tempno: "120",
+            //     quantity: 999.2,
+            //     status: "配送中",
+            // },
             // {
             //     id: 2,
             //     nkkkno: "D10001",
@@ -92,6 +92,11 @@ var app = new Vue({
                 })
               })
           },
+        selectout: function(){
+
+        }
+
+
       
     },
     created: function () {

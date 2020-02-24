@@ -14,21 +14,26 @@
 
         <div class="row">
 
-            <!-- <th><button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectout">Label</button></th> -->
+            <th><button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectout">Label</button>
+            </th>
             <!-- <table >
                 <button type="button" class="table table table-striped ml-5 mt-5" v-on:click="selectout">SelectOut</button>
             </table> -->
             <table class="table table table-striped ml-5 mt-5">
-                <th></th>
-                <th>ID</th>
-                    <th>NKKK</th>
-                    <th>GROUP</th>
-                    <th>TEMP</th>
-                    <th>NKKK</th>
-                    <th>QR</th>
-                    <th>Weight</th>
-                    <!-- <!-- <th>Status</th> --> -->
-                    
+                <th class="col-sm-0"></th>
+                <!-- <th class="col-sm-3">ID
+                    <div></div>
+                </th> -->
+                <th class="col-sm-3">NKKK No.
+                    <div></div>
+                </th>
+                <th class="col-sm-3">GROUP</th>
+                <th class="col-sm-3">TEMP
+                    <div>Weight(kg)</div>
+                </th>
+                <th class="col-sm-3">Status</th>
+                
+
                 <tr is=silist v-for="list in storeditemlists" v-bind:storage="list"></tr>
             </table>
             <!-- <table class="table table table-striped ml-5 mt-5">
@@ -40,7 +45,7 @@
                 <td><button type="button" class="btn btn-outline-primary" href="/logout">Logout</button></td>
             </table> -->
         </div>
-        <pre>{{$data}}</pre>
+        <!-- <!-- <pre>{{$data}}</pre> --> -->
 
     </div>
     <!-- Vueは一番初めに出さないとnew Vueできない -->
