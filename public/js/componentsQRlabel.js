@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\" class=\"col-sm-0\"><td class=\"col-sm-3 h3\"><div>{{nkkkno}}</div><div><img class=\"h3\" src=\"image/nkkk.png\"></div></td>    <td class=\"col-sm-3 h3\"><div>{{groupno}}</div><div><td :id='tag_id'></div></td>    <td class=\"col-sm-3 h3\">  <div class=\"ml-2\">  <span>{{tempno}}</span> <div><td class=\"h1\">{{quantity.toLocaleString()}}</td></div> </div>  </td>  </span></div></td><td class=\"col-sm-3\"><div>{{id}}</div><div>{{status}}</div></td></tr>",
+    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\" class=\"col-md-1 h3\"><td class=\"col-md-3 h3\"><div>{{nkkkno}}</div><div><img class=\"h3\" src=\"image/nkkk.png\"></div></td><td class=\"col-md-2 h3\"><div>{{groupno}}</div><div :id='tag_id'></div></td>  <td class=\"col-md-3 h3\"> <div>{{tempno}}</div> <div>{{quantity.toLocaleString()}}</div>  </td> <td class=\"col-md-3\"><div>{{id}}</div><div>{{status}}</div></td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -30,7 +30,7 @@ Vue.component("silist", {
             return qrd.replace(/"/g, '')
         }
     },
-    mounted: function() {
+    mounted: function () {
         this.qrcreation(this.qr_data)
     },
     methods: {
@@ -77,31 +77,32 @@ var app = new Vue({
         readall: function () {
             // alert("ReadAll")
             const headers = {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             };
             const d = {
-              headers: headers,
-              method: "GET"
+                headers: headers,
+                method: "GET"
             };
             var self = this;
             fetch('/qrlabels', d)
-              .then((e) => {
-                e.json().then((j) => {
-                  self.storeditemlists = j;
+                .then((e) => {
+                    e.json().then((j) => {
+                        self.storeditemlists = j;
+                    })
                 })
-              })
-          },
-        selectout: function(){
+        },
+        selectout: function () {
+            
 
         }
 
 
-      
+
     },
     created: function () {
         return this.readall()
-      },
+    },
 
 })
 
