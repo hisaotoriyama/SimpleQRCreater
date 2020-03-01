@@ -1,6 +1,6 @@
 Vue.component("silist", {
     props: ["storage"],
-    template: "<tr class=\"container\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\" class=\"col-md-1 h3\"><td class=\"col-md-3 h3\"><div>{{nkkkno}}</div><div><img class=\"h3\" src=\"image/nkkk.png\"></div></td><td class=\"col-md-2 h3\"><div>{{groupno}}</div><div :id='tag_id'></div></td>  <td class=\"col-md-3 h3\"> <div>{{tempno}}</div> <div>{{quantity.toLocaleString()}}</div>  </td> <td class=\"col-md-3\"><div>{{id}}</div><div>{{status}}</div></td></tr>",
+    template: "<tr class=\"eachlabel\"><input type=\"checkbox\" id=\"checkbox\" v-model=\"storage.check\"><td><div>{{nkkkno}}</div><div><img src=\"image/nkkk.png\"></div></td><td><div>{{groupno}}</div><div :id='tag_id'></div></td>  <td> <div>{{tempno}}</div> <div>{{quantity.toLocaleString()}}</div>  </td> <td><div>{{id}}</div><div>{{status}}</div></td></tr>",
     computed: {
         id: function () {
             return this.storage.id;
@@ -93,7 +93,7 @@ var app = new Vue({
                 })
         },
         selectout: function () {
-            
+
 
         }
 
