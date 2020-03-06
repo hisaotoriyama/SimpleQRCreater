@@ -47,30 +47,30 @@ var app = new Vue({
     el: "#app",
     data: {
         storeditemlists: [
-            // {
-            //     id: 1,
-            //     nkkkno: "D10001",
-            //     groupno: "AW",
-            //     tempno: "120",
-            //     quantity: 999.2,
-            //     status: "配送中",
-            // },
-            // {
-            //     id: 2,
-            //     nkkkno: "D10001",
-            //     groupno: "BB",
-            //     tempno: "121",
-            //     quantity: 1092.1,
-            //     status: "在庫",
-            // },
-            // {
-            //     id: 3,
-            //     nkkkno: "D10001",
-            //     groupno: "CC",
-            //     tempno: "122",
-            //     quantity: 1030.1,
-            //     status: "在庫",
-            // }
+            {
+                id: 1,
+                nkkkno: "D10001",
+                groupno: "AW",
+                tempno: "120",
+                quantity: 999.2,
+                status: "配送中",
+            },
+            {
+                id: 2,
+                nkkkno: "D10001",
+                groupno: "BB",
+                tempno: "121",
+                quantity: 1092.1,
+                status: "在庫",
+            },
+            {
+                id: 3,
+                nkkkno: "D10001",
+                groupno: "CC",
+                tempno: "122",
+                quantity: 1030.1,
+                status: "在庫",
+            }
         ]
     },
     methods: {
